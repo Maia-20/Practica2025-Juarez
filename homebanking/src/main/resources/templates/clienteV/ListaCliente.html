@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/57faba85b1.js"crossorigin="anonymous"></script>
+    <title>Lista de Clientes</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <style>
+              
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+                        color: rgb(10, 10, 10);
+        }
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        .h2 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+                        background: whitesmoke;
+        }
+        .add-client-btn {
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body class="body">
+
+    <div class="container">
+                <div class="card">
+                   <div class="card-header text-white bg-dark">
+                      <h2>LISTA CLIENTES</h2>
+                   </div>
+                 </div>
+
+        <div class="table-container">
+            <table class="table table-bordered table-hover table-sm">
+                <thead class="table-dark">
+                    <tr class="table-light ">
+                        <th>ID</th>
+                        <th>APELLIDO</th>
+                        <th>NOMBRE</th>
+                        <th>DNI</th>
+                        <th>USUARIO</th>
+                                                <th>DOMICILIO</th>
+                        <th>CORREO</th>
+                        <th>ESTADO</th>
+                    </tr>
+                </thead>
+                <tbody class="table-light">
+                    <tr th:each="client : ${cliente}">
+                        <td th:text="${client.iD}"></td>
+                        <td th:text="${client.apellido}"></td>
+                        <td th:text="${client.nombre}"></td>
+                        <td th:text="${client.dni}"></td>
+                        <td th:text="${client.User}"></td>
+                                                <td th:text="${client.domicilio}"></td>
+                        <td th:text="${client.email}"></td>
+                        <td th:text="${client.estado}"></td>
+                        <td>
+                            <div class="btn-group" role="group">
+
+                                <form th:action="@{/eliminar}" method="POST">
+                                                                        <input type="hidden" th:name="iD" th:value="${client.iD}"/>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-user-xmark"></i></button>
+                                </form>
+
+                                <form th:action="@{/editar}" method="POST">
+                                                                        <input type="hidden" th:name="iD" th:value="${client.iD}"/>
+                                    <button type="submit" class="btn btn-primary btn-sm"> <i class="fa-solid fa-user-pen"></i></button>
+                                </form>
+                                                        </div>                
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-client-btn">
+            <a th:href="@{/altaCliente}" class="btn btn-success"> Agregar Nuevo Cliente</a>
+        </div>
+    </div>
+
+
+                   <script th:src="@{/js/jquery.slim.min.js}"></script>
+                           <script th:src="@{/js/popper.min.js}"></script>
+                           <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

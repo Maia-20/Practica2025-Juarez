@@ -4,13 +4,14 @@ import java.util.Date;
 
 public class Cuenta {
 
-	int IDcuenta;
-	int NumeroCuenta;
-	Cliente cliente;
-	String Estado;
-	Date FechaIngreso;
-	Double SaldoActual;
-	Double LimiteExtraccion;
+	private int IDcuenta;
+	private int NumeroCuenta;
+	private Cliente cliente;
+	private String Estado;
+	private Date FechaIngreso;
+	private Double SaldoActual;
+	private Double LimiteExtraccion;
+	
 	public Cuenta() {
 		super();
 		// TODO Auto-generated constructor stub

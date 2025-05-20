@@ -2,13 +2,13 @@ package com.ICS.homebanking.model.Entity;
 
 public class Cliente {
 
-	int ID;
-	String DNI;
-	String Nombre;
-	String Username;
-	String Clave;
-	String CorreoElectronico;
-	String Estado;
+	private int ID;
+	private String DNI;
+	private String Nombre;
+	private String Username;
+	private String Clave;
+	private String CorreoElectronico;
+	private String Estado;
 	
 	public Cliente() {
 		super();
