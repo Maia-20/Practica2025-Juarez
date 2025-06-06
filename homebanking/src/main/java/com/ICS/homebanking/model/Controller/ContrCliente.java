@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ICS.homebanking.model.Entity.Cliente;
 import com.ICS.homebanking.model.Servi.InterfCliente;
@@ -21,9 +22,9 @@ public class ContrCliente {
 		
 	}
 	
-	@GetMapping("/Listacliente")
+	@GetMapping("/ListaCliente")
 	public String DetalleCliente(Model model) {
-		model.addAttribute("cliente", clienteService.listarClientes());
+		model.addAttribute("listaCliente", clienteService.listarClientes());
 		return "clienteV/ListaCliente";
 		
 	}
@@ -42,5 +43,17 @@ public class ContrCliente {
 		return "redirect:/ListaCliente";
 		
 	}
+	
+	@PostMapping("/Eliminar")
+	public String Eliminar (@RequestParam ("ID") Integer ID, Model model) {
+		clienteService.eliminarCliente(ID);	
+		return "redirect:/ListaCliente";
+		
+	}
+	
+	
+	
+	
+
 	
 }

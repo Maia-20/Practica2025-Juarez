@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/57faba85b1.js"crossorigin="anonymous"></script>
+    <title>Lista de Clientes</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	
+	<style>
+	        body {
+	            background-color: #f8f9fa;
+	        }
+	        .container {
+	            background-color: white;
+	            padding: 30px;
+	            border-radius: 10px;
+	            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	        }
+	        .btn {
+	            margin: 10px;
+	            padding: 12px 20px;
+	            font-size: 18px;
+	            border-radius: 8px;
+	        }
+	    </style>
+		
+</head>
+<body class="body">
+	<div class="container text-center mt-5">
+	        <h1>Gestión de Clientes</h1>
+	        <div class="mt-4">
+				
+	            <a th:href="@{/ListaCliente}" class="btn btn-primary btn-lg">Lista Cliente</a>
+	            <a th:href="@{/AltaCliente}" class="btn btn-success btn-lg">Alta Cliente</a>
+	        </div>
+	    </div>
+
+
+                           <script th:src="@{/js/jquery.slim.min.js}"></script>
+                           <script th:src="@{/js/popper.min.js}"></script>
+                           <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

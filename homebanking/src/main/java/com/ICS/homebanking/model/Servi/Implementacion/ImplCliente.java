@@ -3,9 +3,12 @@ package com.ICS.homebanking.model.Servi.Implementacion;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.ICS.homebanking.model.Entity.Cliente;
 import com.ICS.homebanking.model.Servi.InterfCliente;
 
+@Service
 public class ImplCliente implements  InterfCliente{
 	
 	List <Cliente> clientes = new ArrayList <>();
@@ -30,7 +33,12 @@ public class ImplCliente implements  InterfCliente{
 
 	@Override
 	public void eliminarCliente(int ID) {
-	
+		for(int i = 0; i < clientes.size();i++) {
+			if(clientes.get(i).getID() == ID) {
+				clientes.remove(i);
+				break;
+			}
+		}
 	}
 
 	@Override

@@ -14,6 +14,7 @@ public class Cliente {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Cliente(int iD, String dNI, String nombre, String username, String clave, String correoElectronico,
 			String estado) {
 		super();
@@ -25,6 +26,7 @@ public class Cliente {
 		CorreoElectronico = correoElectronico;
 		Estado = estado;
 	}
+
 	public int getID() {
 		return ID;
 	}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/57faba85b1.js"crossorigin="anonymous"></script>
+    <title>Lista de Clientes</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body class="body">
+
+	<div class="container mt-5">
+	    <div class="card">
+	        <div class="card-header bg-primary text-white">
+	            <h2 class="text-center">Registro de Cliente</h2>
+	        </div>
+	        <div class="card-body">
+	            <form th:action="@{/guardar}" th:object="${cliente}" method="post">
+	                <div class="mb-3">
+	                    <label>Nombre:</label>
+	                    <input type="text" th:field="*{Nombre}" class="form-control" required>
+	                </div>
+	              
+	                <div class="mb-3">
+	                    <label>DNI:</label>
+	                    <input type="text" th:field="*{DNI}" class="form-control" required>
+	                </div>
+	                <div class="mb-3">
+	                    <label>Email:</label>
+	                    <input type="email" th:field="*{CorreoElectronico}" class="form-control" required>
+	                </div>
+				
+					
+	                <button type="submit" class="btn btn-success">Guardar Cliente</button>
+	                <a th:href="@{/}" class="btn btn-secondary">Cancelar</a>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+
+
+               			    <script th:src="@{/js/jquery.slim.min.js}"></script>
+                           <script th:src="@{/js/popper.min.js}"></script>
+                           <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
