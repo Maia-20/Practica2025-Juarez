@@ -67,7 +67,13 @@
                         <td th:text="${cliente.CorreoElectronico}"></td>
                         <td th:text="${cliente.Estado}"></td>
                         <td>
-                                     
+                         <td>
+								
+								<a th:href="@{/Eliminar{ID} (ID=${cliente.ID}) }" class="btn btn-danger btn-sm" > </a> 
+								
+
+							</div>
+						 </td>            
                         </td>
                     </tr>
                 </tbody>

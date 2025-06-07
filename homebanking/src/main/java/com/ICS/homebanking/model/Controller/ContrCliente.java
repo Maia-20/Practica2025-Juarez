@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -44,8 +45,8 @@ public class ContrCliente {
 		
 	}
 	
-	@PostMapping("/Eliminar")
-	public String Eliminar (@RequestParam ("ID") Integer ID, Model model) {
+	@GetMapping("/Eliminar{ID}")
+	public String Eliminar (@PathVariable("ID") Integer ID, Model model) {
 		clienteService.eliminarCliente(ID);	
 		return "redirect:/ListaCliente";
 		
@@ -53,6 +54,19 @@ public class ContrCliente {
 	
 	
 	
+	@PostMapping("/modificar/cliente")
+	public String modifCliente(Cliente cliente) {
+		clienteService.modificarCliente(cliente);
+		
+		return "redirect:/ListaCliente";
+	}
+	
+	@PostMapping("/modificar")
+	public String ModificarCliente(@RequestParam("ID")Integer ID, Model model) {
+		model.addAttribute("cliente", clienteService.EncontrarCliente(ID));
+		return "ClienteV/editarCliente";
+		
+	}
 	
 
 	

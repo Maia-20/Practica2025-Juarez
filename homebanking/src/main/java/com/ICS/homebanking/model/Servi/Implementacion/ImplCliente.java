@@ -27,8 +27,14 @@ public class ImplCliente implements  InterfCliente{
 
 	@Override
 	public Cliente BuscarDNI(String DNI) {
-
-		return null;
+		Cliente ClienteBus= new Cliente();
+		for(Cliente cliente: clientes) {
+			if(DNI.equalsIgnoreCase(cliente.getDNI())) {
+				ClienteBus = cliente;
+				break;
+			}
+		}
+		return ClienteBus;
 	}
 
 	@Override
@@ -65,6 +71,19 @@ public class ImplCliente implements  InterfCliente{
 				break;
 			}
 		}
+	}
+
+	@Override
+	public Cliente EncontrarCliente(int ID) {
+		Cliente clienteEnc = new Cliente();
+		for(Cliente cliente : clientes) {
+			if(ID == cliente.getID()) {
+				clienteEnc = cliente;
+				break;
+			}
+			
+		}
+		return clienteEnc;
 	}
 
 }

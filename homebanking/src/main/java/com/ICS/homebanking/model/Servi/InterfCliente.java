@@ -12,6 +12,7 @@ public interface InterfCliente {
 	void eliminarCliente(int ID);
 	void modificarCliente(Cliente cliente);
 	void actualizarCliente(Cliente cliente);
+	Cliente EncontrarCliente(int ID);
 	
 	
 }
